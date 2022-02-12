@@ -19,6 +19,13 @@
 
         <div class="album py-5 bg-light">
         <div class="container">
+            {% if search_query %}
+                <p>
+                    {% with results.count as total_results %}
+                    Found {{ total_results }} result{{ total_results|pluralize }}
+                    {% endwith %}
+                </p>
+            {% endif %}
             <div class="row">
                 {% for post in results %}
                 <div class="col-md-4">
